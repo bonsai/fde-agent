@@ -1,19 +1,23 @@
-version: 0.1
+version: 0.2
 kind: fde-mission-phase
 phase: model
-name: world-modeling
-mission: データからIssueを見出し、問題を扱える範囲の世界としてモデル化する
+name: world-modeling-and-solution-design
+mission: データからIssueを見出し、対象世界を限定し、その世界を変える解法まで設計する
 principles:
-  - data_is_a_window_not_the_world
+  - reality_before_model
+  - evidence_before_interpretation
   - issue_emerges_from_state
   - scope_before_abstraction
   - model_is_not_reality
+  - solution_is_part_of_modeling
 inputs:
-  - data
+  - real_world
   - observations
   - evidence
+  - data
   - candidate_issues
 activities:
+  - observe
   - inspect_patterns
   - compare_states
   - identify_issue
@@ -21,12 +25,20 @@ activities:
   - identify_objects
   - identify_relations
   - identify_states
+  - define_goal_state
+  - identify_constraints
+  - design_solution
   - define_work
+  - evaluate_alternatives
 outputs:
   - issue
   - scope
   - ontology_candidate
   - relation_states
+  - current_state
+  - target_state
+  - solution
   - work_candidates
-exit_condition: "Issueと、それを扱うための限定された世界モデルを説明できる"
-next: mobilize
+  - implementation_spec
+exit_condition: "Issue、対象世界、目標状態、解法、実装仕様を説明できる"
+next: implement
