@@ -1,0 +1,77 @@
+version: 0.1
+kind: fde-domain-aware
+name: industry-domain-aware
+principle: Awareは業界ごとに世界を見るための観測レンズであり、SkillやToolではない
+max_domains: 6
+
+definition:
+  aware: 何に気づき、何に注意を向けるか
+  skill: 何ができるか
+  tool: 何を使って実行するか
+  agent: 問題を解決する主体
+
+flow: "DOMAIN → AWARE → OBSERVE → DATA → ISSUE → AGENT"
+
+domains:
+  manufacturing:
+    name: manufacturing
+    aware:
+      - process
+      - machine
+      - material
+      - quality
+      - people
+      - flow
+  construction:
+    name: construction
+    aware:
+      - site
+      - structure
+      - worker
+      - material
+      - safety
+      - progress
+  logistics:
+    name: logistics
+    aware:
+      - inventory
+      - shipment
+      - route
+      - vehicle
+      - warehouse
+      - time
+  retail:
+    name: retail
+    aware:
+      - customer
+      - product
+      - inventory
+      - sales
+      - store
+      - demand
+  healthcare:
+    name: healthcare
+    aware:
+      - patient
+      - symptom
+      - treatment
+      - staff
+      - facility
+      - outcome
+  information:
+    name: information-technology
+    aware:
+      - system
+      - data
+      - user
+      - code
+      - service
+      - incident
+
+rules:
+  - domain_is_context_not_identity
+  - aware_is_attention_not_capability
+  - intuition_selects_observation_targets_but_is_not_truth
+  - evidence_precedes_issue_assertion
+  - issue_emerges_from_observed_data
+  - domains_may_evolve_from_field_evidence
