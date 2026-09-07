@@ -1,0 +1,23 @@
+version: 0.1
+kind: fde-mission-phase
+phase: operate
+name: operation
+mission: 実装された解法を現場で運用し、結果と新しいデータを継続的に取得する
+principles:
+  - operation_is_part_of_problem_solving
+  - evidence_over_assumption
+  - measure_real_outcomes
+activities:
+  - run_workflow
+  - monitor
+  - collect_operational_data
+  - collect_feedback
+  - verify_outcomes
+  - record_deviations
+outputs:
+  - operational_state
+  - outcome_data
+  - feedback
+  - evidence
+  - deviations
+next: improve-reconfigure
