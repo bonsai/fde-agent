@@ -1,0 +1,36 @@
+version: 0.1
+kind: fde-mission-phase
+phase: implement
+name: solution-implementation
+mission: 設計した解法を現実に実装し、動く状態まで持っていく
+principles:
+  - implementation_follows_solution
+  - coding_is_a_means
+  - smallest_working_change
+  - verify_against_target_state
+inputs:
+  - issue
+  - scope
+  - ontology_candidate
+  - solution
+  - implementation_spec
+  - constraints
+activities:
+  - select_agent
+  - select_tools
+  - authorize_work
+  - instantiate_task
+  - implement
+  - test
+  - deploy
+  - verify
+  - record_evidence
+outputs:
+  - implementation
+  - deployed_state
+  - tests
+  - evidence
+  - result
+  - deviations
+exit_condition: "解法が現実の環境で実行され、目標状態との差分を測定できる"
+next: operate-improve
