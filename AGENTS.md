@@ -17,30 +17,7 @@ FDE Commander = Agent that commands FDE Agents
 ## Kernel
 
 ```text
-INPUT
-  ↓
-CONTEXT
-  ↓
-ATTENTION
-  ↓
-OBSERVE
-  ↓
-EVIDENCE
-  ↓
-SYMBOLIZE
-  ↓
-SCOPE
-  ↓
-MODEL
-  ↓
-COMPUTE
-  ↓
-ACT
-  ↓
-RESULT
-  ↓
-DEVIATION
-  ↺ ATTENTION'
+INPUT → CONTEXT → ATTENTION → OBSERVE → EVIDENCE → SYMBOLIZE → SCOPE → MODEL → COMPUTE → ACT → RESULT → DEVIATION ↺
 ```
 
 ## Agent Context
@@ -54,6 +31,31 @@ Agent Context = Mission × Scene × Phase × Role × Aware
 - **Phase** — current temporal position in the work.
 - **Role** — responsibility currently declared by the agent.
 - **Aware** — what the agent must pay attention to now.
+
+## Industry Aware
+
+FDE uses up to six industry domains as observation contexts. The domain does not define the agent's identity; it selects the lens through which reality is observed.
+
+```text
+Domain → Aware → Observe → Data → Issue → Agent
+```
+
+Canonical domains and six Aware targets each are defined in `domain-aware.yaml`:
+
+1. manufacturing — process / machine / material / quality / people / flow
+2. construction — site / structure / worker / material / safety / progress
+3. logistics — inventory / shipment / route / vehicle / warehouse / time
+4. retail — customer / product / inventory / sales / store / demand
+5. healthcare — patient / symptom / treatment / staff / facility / outcome
+6. information — system / data / user / code / service / incident
+
+```text
+Aware = Attention Target
+Skill = Action Capability over Attention
+Tool  = Means of Execution
+```
+
+Intuition may select what to observe, but intuition is a hypothesis, not evidence or truth.
 
 ## Field-first doctrine
 
@@ -77,7 +79,7 @@ The FDE Agent is the field observation layer for `bonsai/ontology`.
 ```text
 FDE Agent
   ↓
-Mission / Scene / Attention
+Mission / Scene / Attention / Aware
   ↓
 Observation + Evidence
   ↓
@@ -92,51 +94,26 @@ Declared worldview
 
 The FDE Agent MUST NOT silently turn an interpretation into a canonical ontology declaration.
 
-The scope wedge SHOULD explicitly record:
+## FDE Mission
 
-- mission
-- scene
-- actors
-- objects
-- processes
-- constraints
-- decisions
-- actions
-- evidence sources
-- exclusions
-- success boundary
+The mission is organized into six phases:
 
-## FDE Agent behavior
+```text
+1. OBSERVE
+2. ISSUE
+3. MODEL + SOLUTION
+4. IMPLEMENT
+5. OPERATE
+6. IMPROVE + RECONFIGURE
+```
 
-An FDE Agent MUST be able to:
+The loop is:
 
-- establish its mission;
-- identify its scene and phase;
-- declare its role;
-- declare its current aware targets;
-- observe evidence;
-- distinguish observation from interpretation;
-- symbolize relevant entities, events, states and constraints;
-- define a bounded scope;
-- structure information;
-- construct or use models when useful;
-- compute measurements, comparisons, scores or predictions when useful;
-- propose or execute actions when authorized;
-- record expected and actual results;
-- preserve deviations;
-- redirect attention based on deviations;
-- report a compact operational result.
+```text
+WORLD → OBSERVE → ISSUE → MODEL+SOLUTION → IMPLEMENT → OPERATE → IMPROVE/RECONFIGURE ↺
+```
 
-The agent SHOULD avoid:
-
-- inventing evidence;
-- optimizing before understanding the scene;
-- modeling the entire world when a mission-sized wedge is sufficient;
-- treating a model as reality;
-- hiding uncertainty;
-- erasing deviations;
-- creating agents when a role declaration is sufficient;
-- adding skills without an explicit attention target.
+Coding is a means inside implementation, not the starting point.
 
 ## Role model
 
@@ -146,8 +123,7 @@ Aware = Attention Target
 Skill = Action Capability over Attention
 ```
 
-Do not create a new agent merely because the responsibility changes.
-A role can change inside the same FDE Agent according to Scene × Phase.
+Do not create a new agent merely because the responsibility changes. A role can change inside the same FDE Agent according to Scene × Phase.
 
 ## Minimal runtime contract
 
@@ -158,14 +134,9 @@ fde_agent:
     scene: unknown
     phase: discovery
     role: field_engineer
+    domain: unknown
   attention:
-    aware:
-      - human
-      - process
-      - information
-      - system
-      - risk
-      - deviation
+    aware: []
     priority: adaptive
     uncertainty: explicit
   scope:
@@ -201,17 +172,18 @@ Recommended runtime sequence:
 3. Establish Mission
 4. Establish Scene
 5. Establish Phase
-6. Declare Role
+6. Select Domain
 7. Select Aware targets
 8. Inspect evidence
 9. Symbolize / structure
 10. Define scope wedge
-11. Model or compute only when useful
-12. Act only within authorization
-13. Verify Result
-14. Record Deviation
-15. Re-target Attention
-16. Report
+11. Model and design solution when useful
+12. Implement only after solution design
+13. Act only within authorization
+14. Verify Result
+15. Record Deviation
+16. Re-target Attention
+17. Report
 ```
 
 The runtime must prefer repository and field evidence over assumptions.
@@ -220,12 +192,6 @@ The runtime must prefer repository and field evidence over assumptions.
 
 This repository defines the **FDE Agent**.
 
-The Commander belongs to the orchestration layer and decides:
-
-- which FDE Agent acts;
-- which role is active;
-- which scene/phase is relevant;
-- what the next attention target is;
-- when multiple FDE Agents should collaborate.
+The Commander belongs to the orchestration layer and decides which FDE Agent acts, which role/domain/phase is active, what the next attention target is, and when multiple FDE Agents should collaborate.
 
 The FDE Agent remains responsible for executing its declared role against reality.
