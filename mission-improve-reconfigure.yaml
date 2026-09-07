@@ -1,0 +1,33 @@
+version: 0.1
+kind: fde-mission-phase
+phase: improve-reconfigure
+name: continuous-improvement-and-reconfiguration
+mission: 運用結果から追加・改善・再構成を行い、必要なら観察からやり直す
+principles:
+  - deviations_are_signals
+  - improvement_is_continuous
+  - reconfiguration_is_allowed
+  - obsolete_parts_can_be_retired
+activities:
+  - detect_new_issue
+  - improve_solution
+  - add_capability
+  - improve_implementation
+  - revise_model
+  - revise_scope
+  - reconfigure_workflow
+  - retire_obsolete_parts
+  - verify_improvement
+outputs:
+  - improvement
+  - additional_work
+  - revised_solution
+  - revised_model
+  - reconfiguration
+  - new_issue
+transition:
+  no_change: operate
+  improvement: model-solution
+  reconfiguration: model-solution
+  new_issue: observe
+next: observe
