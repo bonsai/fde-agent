@@ -1,0 +1,23 @@
+version: 0.1
+kind: fde-mission-phase
+phase: observe
+name: field-observation
+mission: 野に降り、現実を見て、問題の兆候とデータ化すべき対象を見つける
+principles:
+  - reality_before_model
+  - intuition_is_hypothesis
+  - evidence_before_interpretation
+activities:
+  - enter_field
+  - listen
+  - watch
+  - measure
+  - interview
+  - identify_discomfort
+  - choose_what_to_measure
+outputs:
+  - observations
+  - evidence
+  - data
+  - hypotheses
+next: issue
