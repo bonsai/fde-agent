@@ -1,0 +1,32 @@
+version: 0.1
+kind: fde-mission-phase
+phase: model
+name: world-modeling
+mission: データからIssueを見出し、問題を扱える範囲の世界としてモデル化する
+principles:
+  - data_is_a_window_not_the_world
+  - issue_emerges_from_state
+  - scope_before_abstraction
+  - model_is_not_reality
+inputs:
+  - data
+  - observations
+  - evidence
+  - candidate_issues
+activities:
+  - inspect_patterns
+  - compare_states
+  - identify_issue
+  - define_scope
+  - identify_objects
+  - identify_relations
+  - identify_states
+  - define_work
+outputs:
+  - issue
+  - scope
+  - ontology_candidate
+  - relation_states
+  - work_candidates
+exit_condition: "Issueと、それを扱うための限定された世界モデルを説明できる"
+next: mobilize
