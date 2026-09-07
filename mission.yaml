@@ -1,13 +1,15 @@
-version: 0.1
+version: 0.2
 kind: fde-mission
 name: field-first-problem-solving
-principle: 野に降り、問題を嗅ぎつけ、悲鳴を聞き、世界をモデル化し、必要なAgentへ渡す
+principle: 野に降り、問題を嗅ぎつけ、世界をモデル化し、解法を設計し、実装し、運用改善する
 phases:
-  - observe
   - model
-  - mobilize
+  - implement
+  - operate-improve
 phase_files:
-  observe: mission-observe.yaml
   model: mission-model.yaml
-  mobilize: mission-mobilize.yaml
-flow: "WORLD → FDE → DATA → ISSUE → MODEL → AGENT → ACTION → RESULT → WORLD"
+  implement: mission-implement.yaml
+  operate-improve: mission-operate-improve.yaml
+flow: "WORLD → FDE → DATA → ISSUE → MODEL+SOLUTION → IMPLEMENT → OPERATE → IMPROVE → WORLD"
+loop: true
+note: "観察はMODELフェーズの入力であり、FDEの活動全体を通じて継続する"
