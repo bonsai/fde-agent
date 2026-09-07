@@ -1,0 +1,31 @@
+version: 0.1
+kind: fde-mission-phase
+phase: observe
+name: world-observation
+mission: 野に降り、世界の悲鳴と違和感を嗅ぎつける
+principles:
+  - reality_before_model
+  - observe_before_code
+  - evidence_before_interpretation
+  - intuition_is_hypothesis
+inputs:
+  - real_world
+  - context
+  - experience
+  - existing_data
+activities:
+  - enter_field
+  - listen
+  - watch
+  - measure
+  - interview
+  - identify_discomfort
+  - choose_what_to_measure
+outputs:
+  - observations
+  - evidence
+  - data
+  - hypotheses
+  - candidate_issues
+exit_condition: "何をデータとして残すべきか説明できる"
+next: model
