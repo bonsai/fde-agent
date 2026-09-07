@@ -1,0 +1,46 @@
+version: 0.1
+kind: fde-mission-phase
+phase: operate-improve
+name: operation-and-continuous-improvement
+mission: 実装を運用し、現場の結果と悲鳴を拾い、解法・モデル・実装を追加・改善・再構成する
+principles:
+  - operation_is_part_of_problem_solving
+  - evidence_over_assumption
+  - deviations_are_signals
+  - improvement_is_continuous
+  - reconfiguration_is_allowed
+inputs:
+  - deployed_state
+  - operational_data
+  - user_feedback
+  - incidents
+  - evidence
+  - deviations
+activities:
+  - observe_operation
+  - collect_feedback
+  - detect_deviation
+  - evaluate_result
+  - add_capability
+  - improve_solution
+  - improve_implementation
+  - revise_model
+  - revise_scope
+  - reconfigure_workflow
+  - retire_obsolete_parts
+outputs:
+  - operational_state
+  - improvement
+  - additional_work
+  - revised_solution
+  - revised_model
+  - reconfiguration
+  - evidence
+  - new_issues
+transition:
+  normal: operate
+  improvement: model
+  reconfiguration: model
+  new_issue: model
+exit_condition: "運用結果が次の改善・追加・再構成の入力として記録される"
+next: model
