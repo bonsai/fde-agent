@@ -1,0 +1,24 @@
+version: 0.1
+kind: fde-mission-phase
+phase: issue
+name: issue-discovery
+mission: データと現場の違和感から、解くべきIssueを定義する
+principles:
+  - issue_emerges_from_data
+  - gap_before_solution
+  - evidence_before_assertion
+activities:
+  - inspect_data
+  - detect_pattern
+  - identify_gap
+  - define_current_state
+  - define_desired_state
+  - formulate_issue
+  - prioritize_issue
+outputs:
+  - issue
+  - current_state
+  - desired_state
+  - gap
+  - evidence
+next: model-solution
