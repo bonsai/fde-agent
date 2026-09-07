@@ -1,0 +1,30 @@
+version: 0.1
+kind: fde-mission-phase
+phase: model-solution
+name: world-modeling-and-solution-design
+mission: Issueを扱うためのスコープ、世界モデル、解法まで設計する
+principles:
+  - scope_before_abstraction
+  - model_is_not_reality
+  - solution_is_part_of_modeling
+  - compare_alternatives
+activities:
+  - define_scope
+  - identify_objects
+  - identify_relations
+  - identify_states
+  - define_constraints
+  - define_target_state
+  - design_solution
+  - evaluate_alternatives
+  - define_work
+  - define_implementation_spec
+outputs:
+  - scope
+  - ontology_candidate
+  - relation_states
+  - world_model
+  - solution
+  - work_candidates
+  - implementation_spec
+next: implement
